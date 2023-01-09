@@ -22,12 +22,31 @@ def camino_corto(grafo, inicio, fin):
                 return path
             
     vertices.remove(c_ver)
-    for vecino, distance in grafo[c_ver]["connections"].items():
-        alternate_route = distancias[c_ver] + distance
-        if alternate_route < distancias[vecino]:
-            distancias[vecino] = alternate_route
+    for vecino, distancia in grafo[c_ver]["connections"].items():
+        otra_ruta = distancias[c_ver] + distancia
+        if otra_ruta < distancias[vecino]:
+            distancias[vecino] = otra_ruta
             p_ver[vecino] = c_ver
-grafo={}
+grafo={
+    "Alderaan": ["Endor", "Hoth", "Tatooine", "Yavin IV"],
+    "Endor": ["Alderaan", "Dagobah", "Hoth", "Kamino", "Kashyyyk"],
+    "Dagobah": ["Endor", "Mustafar", "Kashyyyk"],
+    "Hoth": ["Alderaan", "Endor", "Naboo", "Yavin IV"],
+    "Tatooine": ["Alderaan", "Naboo", "Scarif", "Geonosis", "Sullust"],
+    "Kamino": ["Endor", "Mustafar", "Onderon"],
+    "Naboo": ["Hoth", "Tatooine", "Scarif", "Coruscant", "Onderon"],
+    "Mustafar": ["Dagobah", "Kamino", "Geonosis"],
+    "Scarif": ["Tatooine", "Naboo", "Utapau"],
+    "Bespin": ["Coruscant", "Utapau", "Sullust"],
+    "Coruscant": ["Naboo", "Bespin"],
+    "Geonosis": ["Tatooine", "Mustafar"],
+    "Kashyyyk": ["Endor", "Dagobah"],
+    "Utapau": ["Scarif", "Bespin"],
+    "Onderon": ["Naboo", "Kamino"],
+    "Yavin IV": ["Alderaan", "Hoth"],
+    "Sullust": ["Bespin", "Tatooine"]
+}
+
 print("El camino mas corto entre Tatooine hasta Dagobah es {}".format(camino_corto(grafo,"Tatooine","Dagobah")))
 print("El camino mas corto entre Alderaan hasta Endor es {}".format(camino_corto(grafo,"Alderaan","Endor")))
-"El camino mas corto entre Holth hasta Tatooine es {}".format(camino_corto(grafo,"Holth","Tatooine")
+print("El camino mas corto entre Holth hasta Tatooine es {}".format(camino_corto(grafo,"Holth","Tatooine")))
