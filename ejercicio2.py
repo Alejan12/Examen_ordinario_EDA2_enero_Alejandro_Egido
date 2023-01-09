@@ -2,7 +2,8 @@ class Stormtrooper:
     def __init__(self,nombre,rango):
         self.nombre=nombre
         self.rango=rango
-        print("El soldado {} se ha creado con exito".format(type(self.nombre).__name__))
+    def __str__(self):
+        return "El stormtrooper {} se ha creado con exito".format(self.nombre)
 class Datos(Stormtrooper):
     def __init__(self, nombre, rango,codigo,coherente,siglo,escuadra,trooper):
         super().__init__(nombre, rango)
@@ -24,6 +25,3 @@ def clasificacion(batallon):
     for miembro in batallon:
         print(type(miembro).__name__,miembro.__dict__)
 clasificacion(batallon)
-
-
-        
