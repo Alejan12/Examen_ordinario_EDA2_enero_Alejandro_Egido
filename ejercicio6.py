@@ -6,9 +6,6 @@ def mochila(precios,pesos,volumen):
     
     return max(precios[-1] + mochila(precios[:-1],pesos[:-1],volumen - pesos[-1]),mochila(precios[:-1],pesos[:-1],volumen))
 
-
-
-
 precio=[103, 60, 70, 5, 15] 
 pesos=[12, 23, 11, 15, 7]
 peso_maximo = 100
