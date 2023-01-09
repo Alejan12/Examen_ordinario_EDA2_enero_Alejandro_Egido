@@ -7,6 +7,10 @@ sacar_objetos(objetos)
 def determina(objetos):
     for i in range(len(objetos)):
         if objetos[i]=="sable de luz":
-            contar=len(objetos[:i]+1 )
+            contar=0
+            objetos.pop()
+            contar+= 1
             print("El sable de luz esta en la mochila, se ha necesitada sacar {}".format(contar))
+        else:
+            print("El sable de luz no esta, has muerto")
 determina(objetos)
